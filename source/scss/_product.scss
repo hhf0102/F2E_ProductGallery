@@ -1,0 +1,142 @@
+// product_header--------------------------------------------------------
+.product_header {
+    grid-area: 1 / 1 / auto / span 3;
+    @include templateCR(3, 1);
+    .back {
+        grid-area: 1 / 1 / auto / span 3;
+        justify-self: center;
+        align-self: center;
+        display: flex;
+    }
+    i {
+        font-size: 24px;
+        margin-right: 8px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .logo {
+        width: 131px;
+        height: 27px;
+        background: #000;
+        color: white;
+        text-align: center;
+        line-height: 27px;
+    }
+}
+
+// product_content--------------------------------------------------------
+.product_content {
+    grid-area: 2 / 1 / -1 / -1;
+    @include templateCR(8, 19);
+}
+
+// mainPic----------------------------------------------
+.mainPic {
+    grid-area: 1 / 1 / span 6 / -1;
+    @include templateCR(8, 6);
+    .title2.first {
+        grid-area: 1 / 6 / auto / span 2;
+        justify-self: end;
+        align-self: flex-end;
+    }
+    .title2.second {
+        grid-area: 2 / 8 / span 2 / auto;
+        writing-mode: vertical-lr;
+    }
+    .title2.top {
+        grid-area: 6 / -8 / auto / auto;
+        transform: rotate(180deg);
+        justify-self: start;
+        align-self: flex-start;
+    }
+    .img {
+        grid-area: 2 / 2 / span 4 / span 6;
+        @include bg('../imgs/pic6.jpeg');
+    }
+    .num {
+        grid-area: 5 / -9 / auto / auto;
+        transform: rotate(-90deg);
+        justify-self: end;
+        align-self: flex-end;
+    }
+    .colorBox {
+        grid-area: 1 / 1 / span 3 / span 3;
+        @include colorBox();
+        justify-self: center;
+        align-self: center;
+        z-index: -1;
+    }
+    .bordered {
+        grid-area: 4 / -6 / span 3 / span 5;
+        @include bordered(480px, 200px);
+        justify-self: center;
+        align-self: center;
+        z-index: -1;
+    }
+}
+
+// content----------------------------------------------
+.content {
+    grid-area: 8 / 2 / span 4 / span 6;
+    @include templateCR(6, 4);
+    .detail {
+        grid-area: 1 / 1 / span 2 / auto;
+        writing-mode: vertical-lr;
+        font-style: italic;
+    }
+    .title2 {
+        grid-area: 1 / 2 / auto / span 3;
+    }
+    .title3 {
+        grid-area: 1 / 2 / auto / span 4;
+        font-style: normal;
+        align-self: center;
+        transform: translateY(15px);
+    }
+    .paragraph {
+        grid-area: 2 / 2 / span 3 / span 5;
+        line-height: 1.5em;
+        > p:nth-child(2) {
+            transform: translateY(25px);
+        }
+    }
+}
+
+// pics----------------------------------------------
+.pics {
+    grid-area: 13 / 1 / -1 / -1;
+    @include templateCR(8, 7);
+    .pic1 {
+        grid-area: 1 / 2 / span 3 / span 3;
+        @include bg('../imgs/product_pic1.jpeg');
+    }
+    .pic2 {
+        grid-area: 3 / 4 / span 4 / span 4;
+        @include bg('../imgs/product_pic2.jpeg');
+        z-index: -1;
+    }
+    .bordered {
+        grid-area: 2 / 1 / span 3 / span 5;
+        @include bordered(480px, 200px);
+        justify-self: center;
+        align-self: center;
+        z-index: -2;
+    }
+    .colorBox {
+        grid-area: 2 / 6 / span 2 / span 3;
+        @include colorBox();
+        justify-self: center;
+        z-index: -2;
+    }
+    .striped {
+        grid-area: 6 / -8 / span 2 / span 3;
+        @include striped();
+        justify-self: center;
+        align-self: center;
+    }
+}
+
+
+

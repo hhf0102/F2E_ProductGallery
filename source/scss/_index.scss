@@ -1,0 +1,617 @@
+html {
+    font-family: $ff;
+}
+
+.title {
+    font-size: $fs-title;
+}
+
+.title2, .num {
+    font-size: $fs-title2;
+}
+
+.title3 {
+    font-size: $fs-title3;
+    font-style: italic;
+}
+
+.logo {
+    font-size: $fs-logo;
+}
+
+p {
+    font-size: $fs-p;
+}
+
+.header, .title3, .img, .striped, .bordered, .colorBox, .num   {
+    transition: all 1.1s;
+}
+
+.container {
+    width: 960px;
+    margin: 20px auto 0 auto;
+    @include templateCR(8, 20);
+}
+
+// header--------------------------------------------------
+.header {
+    grid-area: 1 / 3 / auto / span 4;
+    display: grid;
+    justify-items: center;
+    text-decoration: none;
+    &:hover {
+        transform: scale(1.2);
+    }
+    .logo {
+        width: 131px;
+        height: 27px;
+        background: #000;
+        color: white;
+        text-align: center;
+        line-height: 27px;
+    }
+    .title {
+        margin-top: 7px;
+        color: black;
+    }
+}
+
+// item1----------------------------------------------------
+.item1 {
+    grid-area: 2 / 1 / span 5 / span 6;
+    @include templateCR(5, 6);
+    .title2 {
+        position: relative;
+        grid-area: 2 / 1 / auto / span 3;
+        transform: translateY(-12px);
+        z-index: 2;
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow1;
+            top: -17px;
+            height: 25px;
+            overflow: hidden;
+        }
+        &::after {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow2;
+            top: -30px;
+            left: 0;
+            height: 20px;
+            overflow: hidden;
+        }
+    }
+    .title3 {
+        grid-area: 5 / -2 / span 2 / auto;
+        writing-mode: vertical-lr;
+        z-index: 2;
+    }
+    a {
+        grid-area: 2 / 1 / span 4 / span 4;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+        @include bg('../imgs/pic1.jpeg');
+    }
+    .striped {
+        grid-area: 5 / 1 / span 2 / span 3;
+        @include striped();
+        justify-self: center;
+        align-self: center;
+    }
+    .bordered {
+        grid-area: 1 / 3 / span 3 / span 3;
+        @include bordered(240px, 200px);
+        justify-self: center;
+        align-self: center;
+        z-index: -1;
+    }
+    .num {
+        grid-area: 6 / 1 / auto / auto;
+    }
+}
+// item1_effect------------------------------------------
+.item1:hover {
+    .title3 {
+        transform: rotate(-90deg);
+        color: mediumpurple;
+    }
+    .img {
+        transform: translateX(-15%) translateY(-15%);
+    }
+    .striped {
+        transform: scaleX(1.7) translateX(25%);
+    }
+    .bordered {
+        transform: translateY(-25%);
+    }
+    .num {
+        color: mediumpurple;
+    }
+}
+
+// item2---------------------------------------------------
+.item2 {
+    grid-area: 3 / 5 / span 4 / span 4;
+    @include templateCR(4, 4);
+    .title2 {
+        grid-area: 4 / 3 / auto / span 2;
+        position: relative;
+        align-self: center;
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow1;
+            top: -17px;
+            height: 25px;
+            overflow: hidden;
+        }
+        &::after {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow2;
+            top: -30px;
+            left: 0;
+            height: 20px;
+            overflow: hidden;
+        }
+    }
+    .title3 {
+        grid-area: 1 / 1 / auto / span 2;
+        justify-self: end;
+        align-self: end;
+        z-index: 2;
+    }
+    a {
+        grid-area: 2 / 2 / span 2 / span 2;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+        @include bg('../imgs/pic2.jpeg')
+    }
+    .colorBox {
+        grid-area: 1 / 2 / span 3 / span 3;
+        @include colorBox();
+        justify-self: center;
+        align-self: center;
+        z-index: -1;
+    }
+    .bordered {
+        grid-area: 1 / 3 / span 2 / span 2;
+        @include bordered(240px, 200px);
+        z-index: -2;
+    }
+    .num {
+        grid-area: 1 / 4 / auto / auto;
+        justify-self: end;
+    }
+}
+
+// item2_effect------------------------------------------
+.item2:hover {
+    .title3 {
+        transform: translateY(100px);
+        color: mediumpurple;
+    }
+    .img {
+        transform: translateY(-25%);
+    }
+    .colorBox {
+        transform: rotate(90deg);
+    }
+    .bordered {
+        transform: translateY(75%);
+    }
+    .num {
+        color: mediumpurple;
+    }
+}
+
+// item3--------------------------------------------------
+.item3 {
+    grid-area: 8 / 1 / span 5 / span 4;
+    @include templateCR(5, 4);
+    .title2 {
+        grid-area: 1 / 2 / auto / span 3;
+        position: relative;
+        justify-self: end;
+        align-self: end;
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow1;
+            top: -17px;
+            height: 25px;
+            overflow: hidden;
+        }
+        &::after {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow2;
+            top: -30px;
+            left: 0;
+            height: 20px;
+            overflow: hidden;
+        }
+    }
+    .title3 {
+        grid-area: 4 / 1 / auto / span 2;
+        justify-self: end;
+        z-index: 2;
+    }
+    a {
+        grid-area: 2 / 1 / span 2 / span 4;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+        @include bg('../imgs/pic3.jpeg');
+    }
+    .bordered {
+        grid-area: 2 / 3 / span 3 / span 3;
+        @include bordered(240px, 200px);
+        justify-self: center;
+        align-self: center;
+        z-index: -1;
+    }
+    .colorBox {
+        grid-area: 1 / 1 / span 3 / span 2;
+        @include colorBox();
+        align-self: center;
+        z-index: -1;
+    }
+    .num {
+        grid-area: 4 / 5 / auto / auto;
+    }
+}
+
+// item3_effect------------------------------------------
+.item3:hover {
+    .title3 {
+        color: mediumpurple;
+        transform: translateX(-20px) translateY(20px);
+    }
+    .img {
+        transform: translateY(20%);
+    }
+    .colorBox {
+        transform: rotate(90deg) translate(-120px, -150px);
+        background: repeating-linear-gradient(-45deg, transparent, transparent 20px, $color-mint 20px, $color-mint 40px);
+        width: 200px;
+        height: 400px;
+    }
+    .bordered {
+        transform: scaleX(2) scaleY(0.5) translateX(-50px) translateY(150px);
+    }
+    .num {
+        color: mediumpurple;
+    }
+}
+
+// item4--------------------------------------------------
+.item4 {
+    grid-area: 7 / 6 / span 7 / span 3;
+    @include templateCR(3, 7);
+    .title2 {
+        grid-area: 3 / 1 / span 2 / auto;
+        position: relative;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        justify-self: end;
+        align-self: start;
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow1;
+            left: 40px;
+            width: 25px;
+            overflow: hidden;
+        }
+        &::after {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow2;
+            left: 60px;
+            top: 0;
+            width: 20px;
+            overflow: hidden;
+        }
+    }
+    .title3 {
+        grid-area: 1 / 3 / span 2 / auto;
+        writing-mode: vertical-lr;
+        justify-self: center;
+        align-self: flex-end;
+    }
+    a {
+        grid-area: 3 / 2 / span 4 / span 2;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+        @include bg('../imgs/pic4.jpeg');
+    }
+    .striped {
+        grid-area: 6 / 2 / span 2 / span 2;
+        @include striped();
+        align-self: center;
+    }
+    .bordered {
+        grid-area: 2 / 1 / span 2 / span 3;
+        @include bordered(240px, 200px);
+        justify-self: center;
+        z-index: -1;
+    }
+    .num {
+        grid-area: 6 / 1 / auto / auto;
+        justify-self: end;
+        align-self: flex-end;
+        z-index: 2;
+    }
+}
+
+// item4_effect------------------------------------------
+.item4:hover {
+    .title3 {
+        transform: rotate(-90deg);
+        color: mediumpurple;
+    }
+    .img {
+        transform: rotateY(180deg);
+    }
+    .bordered {
+        transform: rotate3d(1, 1, 0, 180deg);
+    }
+    .striped {
+        transform: scaleX(2) translateX(-25%);
+    }
+    .num {
+        color: mediumpurple;
+    }
+}
+
+// item5--------------------------------------------------
+.item5 {
+    grid-area: 12 / 1 / span 4 / span 6;
+    @include templateCR(6, 4);
+    .title2 {
+        grid-area: 2 / 1 / auto / span 3;
+        position: relative;
+        align-self: flex-end;
+        z-index: 2;
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow1;
+            top: -17px;
+            height: 25px;
+            overflow: hidden;
+        }
+        &::after {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow2;
+            top: -30px;
+            left: 0;
+            height: 20px;
+            overflow: hidden;
+        }
+    }
+    .title3 {
+        grid-area: 2 / 5 / auto / span 2;
+        z-index: 2;
+    }
+    a {
+        grid-area: 2 / 3 / span 2 / span 2;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+        @include bg('../imgs/pic5.jpeg');
+        transform: rotateY(180deg);
+    }
+    .striped {
+        grid-area: 1 / 1 / span 2 / span 3;
+        @include striped();
+        align-self: center;
+        justify-self: center;
+        z-index: 1;
+    }
+    .bordered {
+        grid-area: 3 / 2 / span 2 / span 2;
+        @include bordered(240px, 100px);
+        align-self: center;
+    }
+    .num {
+        grid-area: 3 / 2 / auto / auto;
+        align-self: flex-end;
+        z-index: 2;
+    }
+}
+
+// item5_effect------------------------------------------
+.item5:hover {
+    .title3 {
+        color: mediumpurple;
+        transform: translateX(-25%) translateY(25%);
+    }
+    .img {
+        transform: scale(1.5) translateX(-50%) translateY(25%) rotateY(180deg);
+    }
+    .striped {
+        transform: scaleX(2) translateX(25%);
+    }
+    .bordered {
+        transform: scaleX(0.5) scaleY(3) translateX(150%) translateY(-25%);
+    }
+    .num {
+        color: mediumpurple;
+        transform: translateX(250px);
+    }
+}
+
+// item6--------------------------------------------------
+.item6 {
+    grid-area: 14 / 4 / span 6 / span 5;
+    @include templateCR(5, 6);
+    .title2 {
+        grid-area: 1 / 3 / auto / span 3;
+        position: relative;
+        align-self: flex-end;
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow1;
+            top: -17px;
+            height: 25px;
+            overflow: hidden;
+        }
+        &::after {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow2;
+            top: -30px;
+            left: 0;
+            height: 20px;
+            overflow: hidden;
+        }
+    }
+    .title3 {
+        grid-area: 6 / -4 / auto / span 2;
+        justify-self: center;
+    }
+    a {
+        grid-area: 2 / -5 / span 4 / span 4;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+        @include bg('../imgs/pic6.jpeg');
+    }
+    .bordered {
+        grid-area: 4 / -5 / span 3 / span 4;
+        @include bordered(480px, 200px);
+        align-self: center;
+        z-index: -1;
+    }
+    .colorBox {
+        grid-area: 4 / -6 / span 2 / span 3;
+        @include colorBox();
+        justify-self: center;
+        z-index: -1;
+    }
+    .num {
+        grid-area: 3 / -6 / auto / auto;
+        justify-self: end;
+        align-self: flex-end;
+    }
+}
+
+// item6_effect------------------------------------------
+.item6:hover {
+    .title3 {
+        transform: translateY(50px) translateX(-20px);
+        color: mediumpurple;
+    }
+    .img {
+        transform: scale(0.9) translateY(50px) translateX(50px);
+    }
+    .colorBox {
+        transform: translateX(150px) translateY(150px);
+        background: repeating-linear-gradient(-45deg, transparent, transparent 20px, $color-mint 20px, $color-mint 40px);
+        width: 240px;
+        height: 200px;
+
+    }
+    .bordered {
+        transform: scaleY(2) translateY(-40%);
+    }
+    .num {
+        transform: translateX(30px) translateY(30px);
+        color: mediumpurple;
+    }
+}
+
+// item7--------------------------------------------------
+.item7 {
+    grid-area: 16 / -9 / span 5 / span 3;
+    @include templateCR(3, 5);
+    .title2 {
+        grid-area: 2 / 3 / span 2 / auto;
+        position: relative;
+        transform: rotate(90deg) translateX(70px);
+        justify-self: end;
+        align-self: flex-start;
+        &::before {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow1;
+            top: -17px;
+            height: 25px;
+            overflow: hidden;
+        }
+        &::after {
+            content: attr(data-title);
+            position: absolute;
+            color: $color-textShadow2;
+            top: -30px;
+            left: 0;
+            height: 20px;
+            overflow: hidden;
+        }
+    }
+    .title3 {
+        grid-area: 1 / 1 / auto / span 2;
+        align-self: flex-end;
+    }
+    a {
+        grid-area: 2 / 1 / span 4 / span 2;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+        @include bg('../imgs/pic7.jpeg');
+    }
+    .bordered {
+        grid-area: 1 / 1 / span 4 / span 3;
+        @include bordered(240px, 300px);
+        justify-self: center;
+        align-self: center;
+        z-index: -1;
+    }
+    .colorBox {
+        grid-area: 4 / 2 / span 2 / span 2;
+        @include colorBox();
+        z-index: -1;
+    }
+    .num {
+        grid-area: 5 / 3 / auto / auto;
+        justify-self: end;
+        align-self: flex-end;
+    }
+}
+
+// item7_effect------------------------------------------
+.item7:hover {
+    .title3 {
+        transform: translateX(-50px) translateY(-50px);
+        color: mediumpurple;
+    }
+    .img {
+        transform: rotateY(180deg) rotateZ(360deg);
+    }
+    .bordered {
+        transform: translateX(-50px) translateY(80px) scale(1.3);
+    }
+    .colorBox {
+
+    }
+    .num {
+        transform: translateX(50px) translateY(-50px);
+        color: mediumpurple;
+    }
+}
